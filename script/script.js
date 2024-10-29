@@ -18,21 +18,22 @@ const fizz = "Fizz"; /*Stringa corrispondente a m1*/
 const buzz = "Buzz"; /*Stringa corrispondente a m2*/
 
 /*Elaborazione dati*/
-/*Ciclo iterativo per stampa numeri da 1 a n:*/
+/*Ciclo iterativo per stampa numeri da 1 a n e per i multipli di 3 e 5 stampa fizzbuzz, per multipli solo di 3 fizz, per multipli solo di 5 buzz e per i restanti numeri il numero stesso:*/
+/*Metodo tradizionale*/
 for(let i = 1; i <= n; i++) {
-    
+
     /*Per multipli di 3 e di 5 stampo FizzBuzz*/
-    if((i % m1 == 0) && (i % m2 == 0)) {
+    if((i % m1 === 0) && (i % m2 === 0)) {
         console.log(fizz+buzz);
     }
 
     /*Per multipli di 3 ma non di 5 stampo fizz*/
-    else if((i % m1 == 0) && (i % m2 != 0)) {
+    else if((i % m1 === 0) && (i % m2 !== 0)) {
         console.log(fizz);
     }
 
     /*Per multipli di 5 ma non di 3 stampo buzz*/
-    else if((i % m1 != 0) && (i % m2 == 0)) {
+    else if((i % m1 !== 0) && (i % m2 === 0)) {
         console.log(buzz);
     }
 
@@ -40,4 +41,14 @@ for(let i = 1; i <= n; i++) {
     else {
         console.log(i);
     }
+}
+
+/*Metodo con operatore ternario*/
+for(let i = 1; i <= n; i++){
+    console.log(
+        ((i % m1 === 0) && (i % m2 === 0)) ? fizz+buzz :
+        ((i % m1 === 0) && (i % m2 !== 0)) ? fizz :
+        ((i % m1 !== 0) && (i % m2 === 0)) ? buzz :
+        i
+    );
 }
